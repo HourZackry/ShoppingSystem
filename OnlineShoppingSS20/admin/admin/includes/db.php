@@ -2,8 +2,8 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "";
-$db = "Apricot_Store";
+$password = "root";
+$db = "onlineSystem";
 
 
 // Create connection

@@ -15,8 +15,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/online-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/online-icon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Apricot Store | Admin
@@ -40,7 +40,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo"><a href="index.php" class="simple-text logo-normal">
-                    <img src="./assets/img/Capture.png" style="width: 150px;">
+                    <img src="./assets/img/Logo.png" style="width: 150px;">
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
