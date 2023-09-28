@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 07:53 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: localhost:8889
+-- Generation Time: Sep 28, 2023 at 03:07 AM
+-- Server version: 5.7.39
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,16 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ecommerece`
+-- Database: `onlineSystem`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getcat` (IN `cid` INT)  SELECT * FROM categories WHERE cat_id=cid$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -38,9 +29,9 @@ DELIMITER ;
 
 CREATE TABLE `admin_info` (
   `admin_id` int(10) NOT NULL,
-  `admin_name` varchar(30) NOT NULL,
-  `admin_email` varchar(150) NOT NULL,
-  `admin_password` varchar(50) NOT NULL
+  `admin_name` varchar(100) NOT NULL,
+  `admin_email` varchar(300) NOT NULL,
+  `admin_password` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -97,18 +88,16 @@ INSERT INTO `cart` (`id`, `p_id`, `ip_add`, `user_id`, `qty`) VALUES
 (10, 11, '::1', 7, 1),
 (11, 45, '::1', 7, 1),
 (44, 5, '::1', 3, 0),
-(46, 2, '::1', 3, 0),
 (48, 72, '::1', 3, 0),
 (49, 60, '::1', 8, 1),
 (50, 61, '::1', 8, 1),
 (51, 1, '::1', 8, 1),
 (52, 5, '::1', 9, 1),
-(53, 2, '::1', 14, 1),
-(54, 3, '::1', 14, 1),
 (55, 5, '::1', 14, 1),
 (56, 1, '::1', 9, 1),
-(57, 2, '::1', 9, 1),
-(71, 61, '127.0.0.1', -1, 1);
+(71, 61, '127.0.0.1', -1, 1),
+(72, 74, '::1', 26, 5),
+(75, 72, '::1', 26, 10);
 
 -- --------------------------------------------------------
 
@@ -150,9 +139,9 @@ CREATE TABLE `email_info` (
 --
 
 INSERT INTO `email_info` (`email_id`, `email`) VALUES
-(3, 'admin@apricotstore.com'),
-(4, 'help.shohan@gmail.com'),
-(5, 'info.shohan@yahoo.com');
+(3, 'admin@gmail.com'),
+(4, 'help.ss20@gmail.com'),
+(5, 'info.ss20@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -218,7 +207,7 @@ CREATE TABLE `orders_info` (
 --
 
 INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`) VALUES
-(1, 12, 'Shohan', 'help.shohan@gmail.com', 'Dhaka, Khulna, Barisal', 'Daffodil Smart City', 'Barisal', 560074, 'pokjhgfcxc', '4321 2345 6788 7654', '12/90', 3, 77000, 1234);
+(1, 12, 'Shohan', 'help.ss20@gmail.com', 'Setec , Phnom Penh', 'Phnom Penh', 'Cambodia', 19002, 'Hour SS20', '4321 2345 6788 7654', '12/12', 3, 77000, 123);
 
 -- --------------------------------------------------------
 
@@ -345,13 +334,13 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 
 CREATE TABLE `user_info` (
   `user_id` int(10) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `email` varchar(300) NOT NULL,
-  `password` varchar(300) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `mobile` varchar(10) NOT NULL,
-  `address1` varchar(300) NOT NULL,
-  `address2` varchar(11) NOT NULL
+  `address1` varchar(150) NOT NULL,
+  `address2` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -359,15 +348,10 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
-(12, 'Shohanur', 'Rahman', 'shohan@apricotstore.com', 'shohan', '9448121558', 'DSC', 'Dhaka'),
-(15, 'Mehedi', 'Hasan', 'mehedi@apricotstore.com', 'mehedi', '536487276', ',DSC', 'Dhaka'),
-(16, 'Asif', 'Rahman', 'asif@apricotstore.com', 'asif', '9877654334', 'DSC', 'Dhaka'),
-(19, 'Niloy', 'Hasan', 'niloy@apricotstore.com', 'niloy', '9871236534', 'DSC', 'Dhaka'),
-(21, 'Jony', 'Hasan', 'jony@apricotstore.com', 'jony', '202-555-01', 'DSC', 'Dhaka'),
-(22, 'Maruf', 'Mia', 'maruf@apricotstore.com', 'maruf', '9877654334', 'DSC', 'Dhaka'),
-(23, 'tausif', 'Mia', 'tausif@apricotstore.com', 'tausif', '9876543234', 'DSC', 'Dhaka'),
-(24, 'limon', 'Sheikh', 'limon@apricotstore.com', 'limon', '9535688928', 'DSC', 'Dhaka'),
-(25, 'rafin', 'Molla', 'rafin@apricotstore.com', 'rafin', '9535688928', 'DSC', 'Dhaka');
+(12, 'Test-1', '', 'test1@ss20.com', 'test1', '0122222122', 'Setec', 'Setec'),
+(26, 'test', 'test', 'test@test.com', 'test@test.com', '0123456789', 'st123', 'pp'),
+(27, 'admin', 'test', 'admintest@gmail.com', '123456789', '123', '123', 'pp'),
+(28, 'test', 'admin', 'test1@gmail.com', '123456789', '0987654321', 'phnom', 'st230');
 
 --
 -- Triggers `user_info`
@@ -402,14 +386,9 @@ CREATE TABLE `user_info_backup` (
 
 INSERT INTO `user_info_backup` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
 (12, 'Shohanur', 'Rahman', 'shohan@apricotstore.com', 'shohan', '9448121558', 'DSC', 'Dhaka'),
-(15, 'Mehedi', 'Hasan', 'mehedi@apricotstore.com', 'mehedi', '536487276', ',DSC', 'Dhaka'),
-(16, 'Asif', 'Rahman', 'asif@apricotstore.com', 'asif', '9877654334', 'DSC', 'Dhaka'),
-(19, 'Niloy', 'Hasan', 'niloy@apricotstore.com', 'niloy', '9871236534', 'DSC', 'Dhaka'),
-(21, 'Jony', 'Hasan', 'jony@apricotstore.com', 'jony', '202-555-01', 'DSC', 'Dhaka'),
-(22, 'Maruf', 'Mia', 'maruf@apricotstore.com', 'maruf', '9877654334', 'DSC', 'Dhaka'),
-(23, 'tausif', 'Mia', 'tausif@apricotstore.com', 'tausif', '9876543234', 'DSC', 'Dhaka'),
-(24, 'limon', 'Sheikh', 'limon@apricotstore.com', 'limon', '9535688928', 'DSC', 'Dhaka'),
-(25, 'rafin', 'Molla', 'rafin@apricotstore.com', 'rafin', '9535688928', 'DSC', 'Dhaka');
+(26, 'test', 'test', 'test@test.com', 'test@test.com', '0123456789', 'st123', 'pp'),
+(27, 'admin', 'test', 'admintest@gmail.com', '123456789', '123', '123', 'pp'),
+(28, 'test', 'admin', 'test1@gmail.com', '123456789', '0987654321', 'phnom', 'st230');
 
 --
 -- Indexes for dumped tables
@@ -510,7 +489,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -540,13 +519,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `orders_info`
 --
 ALTER TABLE `orders_info`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -558,13 +537,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `user_info_backup`
 --
 ALTER TABLE `user_info_backup`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
