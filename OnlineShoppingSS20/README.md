@@ -15,7 +15,7 @@
 
 08. after creating database name click on import
 
-09. browse the file in directory [Xampp\htdocs\onlineSystem\database\apricotstore.sql]
+09. browse the file in directory [Xampp\htdocs\onlineSystem\database\onlineSystem.sql]
 
 10. after importing successfully
 
