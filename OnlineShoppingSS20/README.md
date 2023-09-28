@@ -25,7 +25,6 @@
 
 13. admin login details  Email= admin@gmail.com or username= admin and Password= 123456789
 
-## If you like my project 
-Don't forget to (Follow) and press the (Star) button. If you want to save this project in your profile, then click on the (Fork) button from the top right side
+
 
 
