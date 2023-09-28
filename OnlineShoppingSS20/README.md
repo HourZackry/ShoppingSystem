@@ -15,11 +15,11 @@
 
 08. after creating database name click on import
 
-09. browse the file in directory [Xampp\htdocs\apricot-store\database\apricotstore.sql]
+09. browse the file in directory [Xampp\htdocs\onlineSystem\database\apricotstore.sql]
 
 10. after importing successfully
 
-11. open any browser and type http://localhost/apricot-store
+11. open any browser and type http://localhost/onlineSystem
 
 12. first register and then login
 
@@ -29,8 +29,3 @@
 Don't forget to (Follow) and press the (Star) button. If you want to save this project in your profile, then click on the (Fork) button from the top right side
 
 
-## Contact with me
-info.shohan@yahoo.com
-
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/shohancse)
